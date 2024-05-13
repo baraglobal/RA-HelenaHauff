@@ -1,0 +1,19 @@
+@import "./reset.scss";
+@import "./breakpoints.scss";
+@import "./animations.scss";
+@import "./helpers.scss";
+@import "./typography.scss";
+@import "./variables.scss";
+@import "./global.scss";
+
+//COMPONENTS
+@import "./components/Loading.scss";
+@import "./components/Logo.scss";
+@import "./components/Nav.scss";
+@import "./components/Intro.scss";
+@import "./components/StandFirst.scss";
+@import "./components/Paragraph.scss";
+@import "./components/PullQuote.scss";
+@import "./components/Spotify.scss";
+@import "./components/Carousel.scss";
+@import "./components/Credits.scss";

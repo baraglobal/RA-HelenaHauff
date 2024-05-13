@@ -1,0 +1,19 @@
+.loading{
+
+    &__wrapper{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 1vw;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    &__dot{
+        opacity: 0;
+        &.active{
+            opacity: 1;
+        }
+    }
+}

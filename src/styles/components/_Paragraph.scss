@@ -1,0 +1,9 @@
+.paragraph{
+    width: 60vw;
+    max-width: 650px;
+    display: block;
+    margin: 30px auto;
+    &:last-child{
+        padding-bottom: 150px;
+    }
+}
