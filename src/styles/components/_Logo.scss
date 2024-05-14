@@ -51,6 +51,7 @@
     transform: translateX(-50%);
     bottom: 60px;
     background-color: #FFF;
+    // padding: 2px;
     padding: 7px 30px;
     border: 1px solid var(--ra-red);
     text-align: center;
@@ -67,9 +68,11 @@
   &__progress-inner{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0px;
     background-color: var(--ra-red);
     height: calc(100% - 2px);
+    max-width: calc(100% - 2px) !important;
+    border: 1px solid #FFF;
     color: #FFF;
     overflow: hidden;
     border-radius: 30px;

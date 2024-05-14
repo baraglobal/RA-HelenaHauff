@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const IntroImage = (props) => {
   const { isMobile } = props;
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const requestRef = useRef();
+  const [maskPosition, setMaskPosition] = useState(0);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -12,6 +15,20 @@ const IntroImage = (props) => {
     };
     setMousePosition(newPosition);
   };
+
+  const animate = (time) => {
+    const newMaskPosition = 50 + 50 * Math.sin(time / 1000); // time in milliseconds
+    setMaskPosition(newMaskPosition);
+    requestRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    if(isMobile){
+      requestRef.current = requestAnimationFrame(animate);
+    }
+    
+    return () => cancelAnimationFrame(requestRef.current);
+  }, []);
 
   return (
     <div className="intro__image-container">
@@ -33,7 +50,7 @@ const IntroImage = (props) => {
           className="intro__image-wrapper"
           style={{
             backgroundImage: 'url("./images/full-res/lead.png")',
-            maskImage: `radial-gradient(ellipse 150vw 120vw at 50vw 30vh, black 20%, transparent 50%)`,
+            maskImage: `radial-gradient(ellipse 150vw 120vw at 50vw ${maskPosition}vh, black 20%, transparent 50%)`,
           }}
         />
       )}
