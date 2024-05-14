@@ -2,6 +2,15 @@ import { useEffect, useState } from "react";
 import IntroImage from "./IntroImage";
 
 const Intro = (props) => {
+
+  // As with the Carousel, I was torn here between a WebGl shader solution that ended up being too heavy
+  // So instead, the image has an svg mask, revealing a focussed image over a pixelated edit of the image
+
+  // The intro animation is designed to take a lead from RA's branding with the horizontal stripe
+  // then use it to reveal the title of the article. This is done with a simple interval that nicrements an
+  // animation state, then corresponding elements have classes applied to them when the respective animation state is reached
+
+  
   const { isMobile } = props;
   const [introProgress, setIntroProgress] = useState(0);
 

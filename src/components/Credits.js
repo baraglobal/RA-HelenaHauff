@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
 const Credits = (props) => {
+
+  // Apart from a simple list of credits, i wanted to mimic a position sticky behavior with the logo
+  // to mark the end of the progress bar and show a button to return to the top
+  // Here i've opted for a JS solution that's a little jerky, but given time I'd like to find a smoother
+  // purely CSS solution.
+
   const { data } = props;
 
   const [elementTop, setElementTop] = useState(20);

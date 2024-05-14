@@ -8,6 +8,14 @@ import PullQuoteImage from "./PullQuoteImage";
 
 
 const PullQuote = (props) => {
+
+  // The idea here is to use the Pull Quotes as an opportunity to show off some of the less prominent images
+  // The text itself sits in a position sticky container, with a function to detect when the images are on screen
+  // Adding a class to change the text into an outline
+
+  // The images are clickable – originally showing the thumbnail res images for optimim load speeds
+  // Then loading in the full-res images for the 'focus-mode' full screen overlay
+
   const { data, isMobile } = props;
 
   const imagesWrapper = useRef();

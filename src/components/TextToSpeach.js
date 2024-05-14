@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 const TextToSpeech = (props) => {
+
+  // Using a basic implementation of the native TextToSpeech api to add accesibility
   const { data } = props;
 
   const [hasPlayed, setHasPlayed] = useState(false);
@@ -13,6 +15,7 @@ const TextToSpeech = (props) => {
 
   const [text, setText] = useState();
 
+  // reformating the text data into a single, readable string
   useEffect(() => {
     const newText = data
       .filter(
@@ -23,67 +26,48 @@ const TextToSpeech = (props) => {
       )
       .map((item) => item.text.trim())
       .join(" ");
-
     setText(newText);
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     const synth = window.speechSynthesis;
     const u = new SpeechSynthesisUtterance(text);
     const voices = synth.getVoices();
-    setVoice(voices[84]);
     setUtterance(u);
-    // return () => {
-    //   synth.cancel();
-    // };
-  }, []);
+    setVoice(voices[84]);
+
+    return () => {
+      synth.cancel();
+    };
+  }, [text]);
 
   const handlePlay = () => {
     const synth = window.speechSynthesis;
+    const voices = synth.getVoices();
+    utterance.voice = voices[84];
+    utterance.pitch = pitch;
+    utterance.rate = rate;
+    utterance.volume = volume;
 
+    if (isPaused && !hasPlayed) {
+      synth.speak(utterance);
+    } else {
+      synth.resume();
+      
+    }
+    setIsPaused(false);
+    setHasPlayed(true);
+  };
 
-    //   const synth = window.speechSynthesis;
-    // const u = new SpeechSynthesisUtterance(text);
-    // const voices = synth.getVoices();
-    
-//     u.voice = voices[84];
-//    u.pitch = pitch;
-//    u.rate = rate;
-//    u.volume = volume;
-    
-    // // setVoice(voices[84]);
-    // // setUtterance(u);
-
-    // console.log(isPaused);
-    // if(isPaused){
-
-    // //   setHasPlayed(true);
-    // // setIsPaused(false);
-    synth.speak(utterance);
-    // setHasPlayed(true);
-    // setIsPaused(false);
-    // } else {
-    //     synth.pause();
-    // }
-
-    // if (hasPlayed && isPaused) {
-    //   synth.resume();
-    //   setIsPaused(false);
-    // } else if (!hasPlayed) {
-    //   synth.speak(utterance);
-    //   setHasPlayed(true);
-    //   setIsPaused(false);
-    // } else {
-    //   synth.pause();
-    //   setIsPaused(true);
-    // }
+  const handlePause = () => {
+    const synth = window.speechSynthesis;
+    synth.pause();
+    setIsPaused(true);
   };
 
   const handleStop = () => {
     const synth = window.speechSynthesis;
-
     synth.cancel();
-
     setIsPaused(true);
     setHasPlayed(false);
   };
@@ -103,11 +87,7 @@ const TextToSpeech = (props) => {
           <rect fill="#E52F28" x="-.48" y="-.34" width="50" height="50" />
         </svg>
       </button>
-      <div className={`tts__text ${isPaused && !hasPlayed ? "active" : ""}`}>
-        <h4>Listen to the article</h4>
-      </div>
-      <button onClick={handlePlay} className={`tts__button active play`}>
-        {isPaused ? (
+      <button onClick={handlePlay} className={`tts__button play ${isPaused?"active":""}`}>
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -116,8 +96,9 @@ const TextToSpeech = (props) => {
           >
             <polygon fill="#E52F28" points="0 49.31 0 0 49.04 26.43 0 49.31" />
           </svg>
-        ) : (
-          <svg
+      </button> 
+      <button onClick={handlePause} className={`tts__button play ${!isPaused?"active":""}`}>
+      <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 49.04 49.31"
@@ -126,8 +107,10 @@ const TextToSpeech = (props) => {
             <rect fill="#E52F28" y=".26" width="20" height="48.8" />
             <rect fill="#E52F28" x="29.04" y=".26" width="20" height="48.8" />
           </svg>
-        )}
-      </button>
+      </button> 
+      <div className={`tts__text ${isPaused && !hasPlayed ? "active" : ""}`}>
+        <h4>Listen to the article</h4>
+      </div>
     </aside>
   );
 };

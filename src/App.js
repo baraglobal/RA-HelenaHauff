@@ -5,28 +5,31 @@ import Data from "./assets/Data";
 
 import Paragraph from "./components/Paragraph";
 import PullQuote from "./components/PullQuote";
+import StandFirst from "./components/StandFirst";
+
 import Logo from "./components/Logo";
 import Intro from "./components/Intro";
 import Nav from "./components/Nav";
-
-import "./styles/global-styles.scss";
-import StandFirst from "./components/StandFirst";
 import Spotify from "./components/Spotify";
 import Loading from "./components/Loading";
 import Carousel from "./components/Carousel";
 import Credits from "./components/Credits";
 import TextToSpeech from "./components/TextToSpeach";
 
+import "./styles/global-styles.scss";
+
 function App() {
   const [pageData, setPageData] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Import aticle text from data file
   useEffect(() => {
     if (Data) {
       setPageData(Data);
     }
   }, [Data]);
 
+  // A handy hook for checking the screen dimensions, and dynamically setting the 100vh value
   useEffect(() => {
     const setAppHeight = () => {
       const doc = document.documentElement;
@@ -53,6 +56,7 @@ function App() {
     };
   }, []);
 
+  // With the data as a JS object, it's now possible to break the content down into modules
   const components = {
     StandFirst,
     Paragraph,
@@ -63,6 +67,8 @@ function App() {
   if (pageData) {
     return (
       <AnimatePresence mode="wait">
+
+        {/* Fade the page in on load with the framer-motion package */}
         <motion.article
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 0.4 } }}
@@ -72,8 +78,10 @@ function App() {
           <Intro isMobile={isMobile}/>
           <Spotify isMobile={isMobile}/>
           <TextToSpeech data={pageData.content} />
-          <main className="main-article">
+          <main>
             <Nav data={pageData} />
+
+            {/* This map checks the type of content coming in and matches it to a module */}
             {pageData.content &&
               pageData.content.map((data, index) => {
                 const Component = components[data.type];
@@ -85,6 +93,7 @@ function App() {
       </AnimatePresence>
     );
   } else {
+    // Show a preloader until the content is ready
     return <Loading />;
   }
 }

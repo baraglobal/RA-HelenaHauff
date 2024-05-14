@@ -1,5 +1,14 @@
 import { useRef, useState } from "react";
 const Carousel = (props) => {
+
+  // The original idea here was to use a light WebGL shader to give the images small trails, adding depth and movement to the carousel
+  // see https://chromatic-london.vercel.app/ for reference
+  // The shader ended up being a little too heavy so I opted for a CSS3D solution instead
+
+  //As the user moves the mouse around, the perspective-origin on the element is changed to give a sense of depth
+  // There is also a subtle bounce animation on the center image to make the carousel feel less static
+
+  
   const { data, isMobile } = props;
 
   const [perspectiveOrigin, setPerspectiveOrigin] = useState({ x: 0, y: 0 });

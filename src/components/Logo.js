@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 
 const Logo = (props) => {
 
+  // Here i took a lead from the supplied socials video whereby the logo is shown as an outline then fills
+
+  // First i converted the logo to SVG, then used the path to create a mask
+  // Once the mask is in place i can calculate the user's scroll position and use it to set the width of a container
+  // within the mask
+
   const {isMobile} = props;
   const [readTime, setReadTime] = useState(6);
   const [progress, setProgress] = useState(0);
@@ -22,6 +28,8 @@ const Logo = (props) => {
       const totalScrollableDistance = documentHeight - windowHeight;
       const remainingScrollDistance = totalScrollableDistance - scrollTop;
 
+      // This function shows a (innacurate for now, but amendable!) 'read time remaining'
+      // text, based in the user's scroll position
       if (totalScrollableDistance > 0) {
         const remainingPercentage = Math.floor(
           (remainingScrollDistance / totalScrollableDistance) * 100 * 0.05 + 1
@@ -53,6 +61,7 @@ const Logo = (props) => {
           <div className="logo__progress" style={{ width: `${progress}%` }} />
         </div>
         <h4 className="logo__read-time">
+          {/* Removing the plural 'mins' when 1 min remains */}
           READ TIME: {readTime} min{readTime > 1 || readTime === 0 ? "s" : ""}
         </h4>
       </aside>

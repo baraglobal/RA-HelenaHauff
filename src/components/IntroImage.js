@@ -7,6 +7,7 @@ const IntroImage = (props) => {
   const requestRef = useRef();
   const [maskPosition, setMaskPosition] = useState(0);
 
+  // A function to have the CSS gradient mask follow the cursor on desktop
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     const newPosition = {
@@ -16,6 +17,7 @@ const IntroImage = (props) => {
     setMousePosition(newPosition);
   };
 
+  // Then a function to have the mask move autonomosly on mobile, aiming to replicate the desktop effect
   const animate = (time) => {
     const newMaskPosition = 50 + 50 * Math.sin(time / 1000); // time in milliseconds
     setMaskPosition(newMaskPosition);
@@ -26,7 +28,6 @@ const IntroImage = (props) => {
     if(isMobile){
       requestRef.current = requestAnimationFrame(animate);
     }
-    
     return () => cancelAnimationFrame(requestRef.current);
   }, []);
 

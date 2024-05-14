@@ -1,6 +1,9 @@
 const Paragraph = (props) => {
   const { data } = props;
 
+  // Converting the quotes in the text to show as italics.
+  // This could be extended for Bold, Caps, Links etc.
+  
   function convertQuotesToItalic(text) {
     return text.replace(/"([^"]*)"/g, (match, p1) => `<em>"${p1}"</em>`);
   }
