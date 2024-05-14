@@ -132,5 +132,14 @@
       }
       pointer-events: none;
     }
+
+    &__line {
+      &::before {
+        height: 70%;
+        width: calc(50% - 1px);
+        top: 15%;
+        border-right: 2px solid var(--ra-red);
+      }
+    }
   }
 }
