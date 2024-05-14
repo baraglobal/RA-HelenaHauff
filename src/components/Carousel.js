@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 const Carousel = (props) => {
-  const { data } = props;
+  const { data, isMobile } = props;
 
   const [perspectiveOrigin, setPerspectiveOrigin] = useState({ x: 0, y: 0 });
 
   const handlePerspective = (e) => {
-    const perspectiveOriginX = `${(e.clientX / window.innerWidth) * 100}%`;
-    const perspectiveOriginY = `${(e.clientY / window.innerHeight) * 100}%`;
-    setPerspectiveOrigin({ x: perspectiveOriginX, y: perspectiveOriginY });
+    if(!isMobile){
+      const perspectiveOriginX = `${(e.clientX / window.innerWidth) * 100}%`;
+      const perspectiveOriginY = `${(e.clientY / window.innerHeight) * 100}%`;
+      setPerspectiveOrigin({ x: perspectiveOriginX, y: perspectiveOriginY });
+    }
   };
 
   const leftImage = useRef();
