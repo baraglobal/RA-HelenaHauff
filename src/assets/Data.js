@@ -6,7 +6,9 @@ const Data = {
     subTitle: "The Rules Don't Apply",
     standFirst:
       "Behind the staying power of one of dance music's most mysterious— and most celebrated— DJs.",
-    leadImage: ["0"],
+    words: "Chloe Lula",
+    images: "Stini Röhrs",
+    leadImage: "lead.png",
     published: "15/05/2024",
     credits: [
       ["Words", "Chloe Lula"],
@@ -22,10 +24,12 @@ const Data = {
       ["Lights / Digi Op", "Alex Craddock"],
       ["Photo Assistant", "Jakob Riemann"],
     ],
-    words: "Chloe Lula",
-    images: "Stini Röhrs"
   },
   content: [
+    {
+      type: "StandFirst",
+      text: "Behind the staying power of one of dance music's most mysterious— and most celebrated— DJs.",
+    },
     {
       type: "Paragraph",
       text: `In place of a standard accolade-touting career biography, the top right corner of Helena Hauff's
@@ -56,7 +60,12 @@ const Data = {
       type: "PullQuote",
       text: `"The core of the music has never changed. It's about that raw energy—it's what
             I've always been into."`,
-      images: [["RA_HH_01.png"],["RA_HH_01.png"],["RA_HH_01.png"],["RA_HH_01.png"]],
+      images: [
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+      ],
     },
     {
       type: "Paragraph",
@@ -106,7 +115,11 @@ sub-label Werk Discs in 2015—when he saw her play at Pudel as a 20-year-old.`,
     },
     {
       type: "Carousel",
-      images: [["RA_HH_CAROUSEL_01.png"],["RA_HH_CAROUSEL_02.png"],["RA_HH_CAROUSEL_03.png"]],
+      images: [
+        ["RA_HH_CAROUSEL_01.png"],
+        ["RA_HH_CAROUSEL_02.png"],
+        ["RA_HH_CAROUSEL_03.png"],
+      ],
     },
     {
       type: "Paragraph",
@@ -166,7 +179,11 @@ you'll see the big picture."`,
     },
     {
       type: "Carousel",
-      images: [["RA_HH_CAROUSEL_04.png"],["RA_HH_CAROUSEL_05.png"],["RA_HH_CAROUSEL_06.png"]],
+      images: [
+        ["RA_HH_CAROUSEL_04.png"],
+        ["RA_HH_CAROUSEL_05.png"],
+        ["RA_HH_CAROUSEL_06.png"],
+      ],
     },
     {
       type: "Paragraph",
@@ -236,7 +253,12 @@ up their feeds and pivoted their signature styles in accordance with bank-backed
       type: "PullQuote",
       text: `"No one can say that I've achieved what I have because of the nice pictures I
 posted on Instagram. I'm just good at what I do.”`,
-images: [["RA_HH_01.png"],["RA_HH_01.png"],["RA_HH_01.png"],["RA_HH_01.png"]],
+      images: [
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+        ["RA_HH_01.png"],
+      ],
     },
     {
       type: "Paragraph",
@@ -281,6 +303,5 @@ what I've always been into."`,
     },
   ],
 };
-
 
 export default Data;

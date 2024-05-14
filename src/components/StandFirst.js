@@ -6,7 +6,7 @@ const StandFirst = (props) => {
 
   return (
     <section className='stand-first__wrapper'>
-       <h2>{data}</h2> 
+       <h2>{data.text}</h2> 
     </section>
   )
 }

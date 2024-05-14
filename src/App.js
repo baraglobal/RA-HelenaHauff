@@ -15,6 +15,7 @@ import Spotify from "./components/Spotify";
 import Loading from "./components/Loading";
 import Carousel from "./components/Carousel";
 import Credits from "./components/Credits";
+import TextToSpeech from "./components/TextToSpeach";
 
 function App() {
   const [pageData, setPageData] = useState(null);
@@ -53,6 +54,7 @@ function App() {
   }, []);
 
   const components = {
+    StandFirst,
     Paragraph,
     PullQuote,
     Carousel,
@@ -69,9 +71,10 @@ function App() {
           <Logo />
           <Intro />
           <Spotify />
+          <TextToSpeech data={pageData.content} />
           <main className="main-article">
             <Nav data={pageData} />
-            <StandFirst data={pageData.info.standFirst} />
+            {/* <StandFirst data={pageData.info.standFirst} /> */}
             {pageData.content &&
               pageData.content.map((data, index) => {
                 const Component = components[data.type];
