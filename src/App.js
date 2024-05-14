@@ -74,7 +74,6 @@ function App() {
           <TextToSpeech data={pageData.content} />
           <main className="main-article">
             <Nav data={pageData} />
-            {/* <StandFirst data={pageData.info.standFirst} /> */}
             {pageData.content &&
               pageData.content.map((data, index) => {
                 const Component = components[data.type];

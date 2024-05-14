@@ -61,10 +61,10 @@ const Data = {
       text: `"The core of the music has never changed. It's about that raw energy—it's what
             I've always been into."`,
       images: [
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
+        ["RA_HH_06.png"],
+        ["RA_HH_016.png"],
+        ["RA_HH_018.png"],
+        ["RA_HH_09.png"],
       ],
     },
     {
@@ -254,10 +254,10 @@ up their feeds and pivoted their signature styles in accordance with bank-backed
       text: `"No one can say that I've achieved what I have because of the nice pictures I
 posted on Instagram. I'm just good at what I do.”`,
       images: [
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
-        ["RA_HH_01.png"],
+        ["RA_HH_07.png"],
+        ["RA_HH_02.png"],
+        ["RA_HH_05.png"],
+        ["RA_HH_010.png"],
       ],
     },
     {

@@ -1,0 +1,73 @@
+.tts{
+
+    &__wrapper{
+        position: fixed;
+        margin: 20px;
+        bottom: 0;
+        right: 0;
+        height: 34px;
+        z-index: 10;
+    }
+
+    &__text{
+        position: absolute;
+        top: 5px;
+        right: 40px;
+        background-color: #FFF;
+        padding: 7px 30px;
+        border: 1px solid var(--ra-red);
+        display: inline-block;
+        border-radius: 30px;
+        -webkit-box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        -moz-box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        max-width: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease-in-out;
+        overflow: hidden;
+        text-wrap: nowrap;
+        &.active{
+            max-width: 400px;
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &__button{
+        display: inline-block;
+        padding: 6px;
+        position: relative;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: #FFF;
+        border: 1px solid var(--ra-red);
+        -webkit-box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        -moz-box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        box-shadow: 0px 0px 10px 1px rgba(229,47,40,0.6);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease-in-out;
+        &.play{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        &.stop{
+            position: absolute;
+            top: 0;
+            right: 40px;
+        }
+        &.active{
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &__icon{
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+}
