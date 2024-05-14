@@ -8,7 +8,7 @@ import PullQuoteImage from "./PullQuoteImage";
 
 
 const PullQuote = (props) => {
-  const { data } = props;
+  const { data, isMobile } = props;
 
   const imagesWrapper = useRef();
   const [outline, setOutline] = useState(false);
@@ -61,7 +61,7 @@ const PullQuote = (props) => {
       <div className="pull-quote__images-container" ref={imagesWrapper}>
         {data.images.map((imageSrc, index) => {
           return (
-            <PullQuoteImage key={index} imageSrc={imageSrc} toggleFocusActive={toggleFocusActive} />
+            <PullQuoteImage key={index} imageSrc={imageSrc} toggleFocusActive={toggleFocusActive} isMobile={isMobile}/>
           );
         })}
       </div>

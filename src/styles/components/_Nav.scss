@@ -42,3 +42,29 @@
     }
 
 }
+
+@include mobile {
+
+    .nav{
+
+        &__wrapper{
+            width: calc(100% - 40px);
+            padding: 0 20px;
+            &.top{
+                top: 20px;
+            }
+    
+            &.bottom{
+                top: calc(100% - 54px);
+            }
+        }
+
+
+    &__tablet,
+    &__published{
+        display: block;
+    }
+
+    }
+
+}

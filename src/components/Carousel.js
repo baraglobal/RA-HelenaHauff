@@ -7,7 +7,6 @@ const Carousel = (props) => {
   const handlePerspective = (e) => {
     const perspectiveOriginX = `${(e.clientX / window.innerWidth) * 100}%`;
     const perspectiveOriginY = `${(e.clientY / window.innerHeight) * 100}%`;
-    console.log("hey");
     setPerspectiveOrigin({ x: perspectiveOriginX, y: perspectiveOriginY });
   };
 

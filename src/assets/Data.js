@@ -267,7 +267,7 @@ presence aside from her accumulated collection of interviews and reviews. There 
 nadir of the 2020 lockdown when she considered joining a couple of platforms, but she's ultimately
 happy she didn't, calling social media a "disease" that breeds mindless content and skewed
 metrics for success. She's also aware of how her abstention has influenced the course of her
-career."I think I've been a bit lucky that I haven't had to play the game," she reflected. "I think it's
+career."I think I've been a bit lucky that I haven't had to play the game" she reflected. "I think it's
 gotten me more respect, because people notice that I'm not playing. I don't blame people for using
 it as a tool, but at least now no one can say that I've achieved what I have because of the nice
 pictures I posted on Instagram. I'm just good at what I do.”`,

@@ -71,3 +71,30 @@
         display: block;
     }
 }
+
+@include mobile{
+
+    .tts{
+    &__wrapper{
+        position: fixed;
+        margin: 0;
+        bottom: 58px;
+        right: 20px;
+        z-index: 10;
+    }
+
+    &__text{
+        display: none;
+       
+    }
+    &__button{
+        margin: 0;
+    }
+    &__icon{
+        pointer-events: none;
+        width: 17px;
+        height: 17px;
+        display: block;
+    }
+}
+}

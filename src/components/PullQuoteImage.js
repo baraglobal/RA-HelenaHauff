@@ -4,13 +4,17 @@ const PullQuoteImage = (props) => {
 
     const {
         imageSrc, 
-        toggleFocusActive
+        toggleFocusActive,
+        isMobile
     } = props;
 
     const [marginLeft, setMarginLeft] = useState(0);
     useEffect(()=>{
-        const newMarginLeft = Math.floor(Math.random() * 100);
+        if(!isMobile){
+             const newMarginLeft = Math.floor(Math.random() * 100);
         setMarginLeft(newMarginLeft);
+        }
+     
     },[])
 
   return (

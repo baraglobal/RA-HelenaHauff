@@ -38,25 +38,45 @@ const TextToSpeech = (props) => {
     // };
   }, []);
 
-  const togglePlay = () => {
+  const handlePlay = () => {
     const synth = window.speechSynthesis;
-    utterance.voice = voice;
-    utterance.pitch = pitch;
-    utterance.rate = rate;
-    utterance.volume = volume;
 
-    if (hasPlayed && isPaused) {
-      synth.resume();
-      setIsPaused(false);
-    } else if (!hasPlayed) {
-      synth.speak(utterance);
-      setHasPlayed(true);
-      setIsPaused(false);
-    } else {
-      synth.pause();
-      setIsPaused(true);
-    }
+
+    //   const synth = window.speechSynthesis;
+    // const u = new SpeechSynthesisUtterance(text);
+    // const voices = synth.getVoices();
+    
+//     u.voice = voices[84];
+//    u.pitch = pitch;
+//    u.rate = rate;
+//    u.volume = volume;
+    
+    // // setVoice(voices[84]);
+    // // setUtterance(u);
+
+    // console.log(isPaused);
+    // if(isPaused){
+
+    // //   setHasPlayed(true);
+    // // setIsPaused(false);
     synth.speak(utterance);
+    // setHasPlayed(true);
+    // setIsPaused(false);
+    // } else {
+    //     synth.pause();
+    // }
+
+    // if (hasPlayed && isPaused) {
+    //   synth.resume();
+    //   setIsPaused(false);
+    // } else if (!hasPlayed) {
+    //   synth.speak(utterance);
+    //   setHasPlayed(true);
+    //   setIsPaused(false);
+    // } else {
+    //   synth.pause();
+    //   setIsPaused(true);
+    // }
   };
 
   const handleStop = () => {
@@ -86,7 +106,7 @@ const TextToSpeech = (props) => {
       <div className={`tts__text ${isPaused && !hasPlayed ? "active" : ""}`}>
         <h4>Listen to the article</h4>
       </div>
-      <button onClick={togglePlay} className={`tts__button active play`}>
+      <button onClick={handlePlay} className={`tts__button active play`}>
         {isPaused ? (
           <svg
             data-name="Layer 1"

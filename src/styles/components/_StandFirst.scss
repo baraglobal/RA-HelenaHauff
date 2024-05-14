@@ -1,6 +1,16 @@
 .stand-first{
-
     &__wrapper{
         margin: 150px 10vw;
     }
+}
+
+@include mobile {
+
+    .stand-first{
+        &__wrapper{
+            margin: 50px 10px;
+        }
+    }
+
+    
 }

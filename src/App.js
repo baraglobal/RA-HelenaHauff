@@ -68,16 +68,16 @@ function App() {
           animate={{ opacity: 1, transition: { duration: 0.4 } }}
           exit={{ opacity: 0, transition: { duration: 0.4 } }}
         >
-          <Logo />
-          <Intro />
-          <Spotify />
+          <Logo isMobile={isMobile}/>
+          <Intro isMobile={isMobile}/>
+          <Spotify isMobile={isMobile}/>
           <TextToSpeech data={pageData.content} />
           <main className="main-article">
             <Nav data={pageData} />
             {pageData.content &&
               pageData.content.map((data, index) => {
                 const Component = components[data.type];
-                return <Component data={data} key={index} />;
+                return <Component data={data} key={index} isMobile={isMobile}/>;
               })}
           </main>
           <Credits data={pageData.info} />
