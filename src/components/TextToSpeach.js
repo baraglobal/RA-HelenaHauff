@@ -30,11 +30,12 @@ const TextToSpeech = (props) => {
     const synth = window.speechSynthesis;
     const u = new SpeechSynthesisUtterance(text);
     const voices = synth.getVoices();
-    setVoice(voices[159])
+    console.log(voices);
+    setVoice(voices[84])
     setUtterance(u);
-    return () => {
-      synth.cancel();
-    };
+    // return () => {
+    //   synth.cancel();
+    // };
   }, []);
 
   const handlePlay = () => {
