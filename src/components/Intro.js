@@ -23,7 +23,7 @@ const Intro = (props) => {
         } else {
           clearInterval(introInterval);
         }
-      }, 800);
+      }, 400);
     };
     setTimeout(() => {
       runIntro();
@@ -47,7 +47,7 @@ const Intro = (props) => {
       <IntroImage isMobile={isMobile} />
       <div
         className={`intro__line-wrapper ${
-          introProgress > 0 && introProgress < 8 ? "active" : ""
+          introProgress > 0 && introProgress < 5 ? "active" : ""
         }`}
       >
         <div
